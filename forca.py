@@ -17,7 +17,7 @@ def jogar():
     print("*********************************")
 
     palavra_secreta = random_lista()
-    mask_palavra = list(len(palavra_secreta) * "_")
+    mask_palavra = ["-" for letra in palavra_secreta]
     enforcou = False
     acertou = False
     erros = 0
@@ -35,7 +35,7 @@ def jogar():
         else:
             erros += 1
             desenha_forca(erros)
-        if mask_palavra == palavra_secreta:
+        if "".join(mask_palavra) == palavra_secreta:
             acertou = True
             imprime_mensagem_vencedor()
         if erros == 7:
